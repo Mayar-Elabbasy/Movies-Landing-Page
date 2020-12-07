@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <script>
+        // function to validate contact us form
+        function validateForm() { 
+            let name = document.forms["contactUsForm"]["name"]; 
+            let email = document.forms["contactUsForm"]["email"]; 
+            let phone = document.forms["contactUsForm"]["phoneNumber"]; 
+            let message = document.forms["contactUsForm"]["message"];
+
+            // name validations
+            if (name.value == "") { 
+                window.alert("Please enter your name."); 
+                name.focus(); 
+                return false; 
+            } 
+            if(name.value.length < 3) {
+                window.alert("Name must be greater than two characters"); 
+                name.focus(); 
+                return false;  
+            }
+
+            //email validations
+            if (email.value == "") { 
+                window.alert("Please enter your e-mail address."); 
+                email.focus(); 
+                return false; 
+            } 
+
+            //phone number validations
+            if (phone.value == "") { 
+                window.alert("Please enter your telephone number."); 
+                phone.focus(); 
+                return false; 
+            }
+
+            if (phone.value == "") { 
+                window.alert("Please enter your telephone number."); 
+                phone.focus(); 
+                return false; 
+            }
+                
+            if(phone.value.length != 11) {
+                window.alert("Phone Number must be 11 digits"); 
+                name.focus(); 
+                return false;  
+            }
+
+            //message validations
+            if (message.value == "") { 
+                alert("Please enter your message."); 
+                message.focus(); 
+                return false; 
+            } 
+            alert("Successfully sent ^_^ \n Thanks for your time, We will consider your message")
+            return true; 
+        } 
+    </script>
+</head>
+
+<body>
+    <header id="header">
+        <nav id="nav-bar">
+            <ul>
+                <li><a class="nav-link" href="#about">About</a></li>
+                <li><a class="nav-link" href="#movies">Movies</a></li>
+                <li><a class="nav-link" href="#contact-us">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+  
+    <section id="about">
+        <h3 class="title" >About</h3>
+        <div class="row">
+            <div class="column1">
+                <img 
+                src="https://media1.giphy.com/media/hTOvfENbKS9B576w60/giphy.gif?cid=ecf05e47xamzxm3ej3ohel2lt775xbnnm13cjxah6tvjwcy4&rid=giphy.gif" />
+            </div>
+            <div class="column2">
+                <h2>Check all the movies you want to watch here</h2>
+                <p>Get Ready for the movie night ^_^</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="movies">
+        <h3 class="title">Movies</h3>
+        <div id="images-of-movies">
+
+        </div> 
+    </section>
+
+    <section id="contact-us">
+        <h1 class="title" >Contact Us</h1>
+        <p id="description">We would be delighted to receive messages from you</p>
+        <div id="main">
+            <form name="contactUsForm" method="post" onsubmit="return validateForm(); preventDefault();" id="form">
+                <label id="name-label">Name</label>
+                <input type="text" id="name" placeholder="Enter you name" name="name" required />
+
+                <label id="email-label">Email</label>
+                <input type="email" id="email" placeholder="Enter you email" name="email" required /> 
+                
+                <label id="phone-number-label">Phone Number</label>
+                <input type="tel" id="phoneNumber" placeholder="Enter you phone number" 
+                       name="phoneNumber" pattern="[0-9]+" required /> 
+
+                <label id="message-label">Message</label>
+                <textarea name="message" id="message" rows="3" cols="100" required> </textarea>
+                <input type="submit" id="submit" value="Send Message" />
+            </form>
+        </div>
+    </section>
+</body>
+</html>

@@ -12,7 +12,8 @@ fetch('https://imdb8.p.rapidapi.com/title/get-images', {
     }).then(function(data) {
         // console.log(data.images);
         var html = ""; 
-        $.each(data.images, function(item) {
+        $(data.images).each(function (index, item) {
+            // console.log(item.url);
             html += "<div class='row'>";
             html += "<img src='" + item.url + "' alt='image'  />";
             html += "</div>";
